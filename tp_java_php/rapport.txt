@@ -11,7 +11,7 @@ Si on veut changer le code cela va etre compliquer
 Si on doit faire une evolution 
 Creation d'un nouvelle outils qui peux etre compliquer 
 
-On deverai cree des fonctions comme : 
+On deverai cree des fonctions comme : git push -u origin main
 isAvailable(outil) qui verifie la disponibilité de l'outils
 isToolExist(index) qui verifie si l'outils existe 
 isTextInt(text) qui s'assure que le text saisie est un chiffre 
