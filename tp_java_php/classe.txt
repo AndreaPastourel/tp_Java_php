@@ -1,0 +1,18 @@
+Outil (index,nom, prixParJour, disponible)
+get + set 
+constructeur 
+
+
+Catalogue (listeOutils): gère la liste des outils, l’affichage, la recherche par index.
+afficherOutils()
+trouverOutils(index)
+AjouterOutils(outil)
+SupprimerOutils(outils)
+ModifierOutils(outils)
+
+GestionLocation (ou LocationService) : logique de location / retour, calcul du prix total.
+LouerOutils(Outil)
+retourOutil(Outil)
+calculPrixTotal(outils,jour)
+
+Une classe principale (Application, Main…) qui gère le menu console.

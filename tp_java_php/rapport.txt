@@ -21,4 +21,5 @@ outils
 catalogue 
 serviceDeLocation
 main
+
 Peu etre que le code serait plus perfomant et lisible avec un case 
