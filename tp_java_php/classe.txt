@@ -8,11 +8,10 @@ afficherOutils()
 trouverOutils(index)
 AjouterOutils(outil)
 SupprimerOutils(outils)
-ModifierOutils(outils)
 
 GestionLocation (ou LocationService) : logique de location / retour, calcul du prix total.
 LouerOutils(Outil)
 retourOutil(Outil)
 calculPrixTotal(outils,jour)
 
-Une classe principale (Application, Main…) qui gère le menu console.
+Main
