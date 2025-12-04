@@ -47,11 +47,11 @@ class LocationService{
 
             }
             else {
-                echo $tool->getName()+" est deja loué";
+                echo $tool->getName()." est deja loué\n";
             }
         }
         else {
-            echo "Index incorrect";
+            echo "Index incorrect\n";
         }
     }
 
@@ -63,9 +63,10 @@ class LocationService{
             $toolAvailable=$tool->getAvailable();
             if ($toolAvailable === false){
                 $tool->setAvailable(true);
+                 echo "Outil " . $tool->getName() . " retourne. Il est maintenant disponible.\n\n";
             }
             else {
-                echo $tool->getName()+" est deja disponible";
+                echo $tool->getName()." est deja disponible\n\n";
             }
         }
         else {

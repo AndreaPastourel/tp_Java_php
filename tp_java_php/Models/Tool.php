@@ -19,7 +19,7 @@
 
         
         //Getter
-        public function getIndex(): string {
+        public function getIndex(): int {
             return $this->index;
         }
 
