@@ -1,0 +1,16 @@
+Les données sont stockes dans 3 listes distinctes. La premiere stocke le nom des outils
+La deuxieme elle stocke le prix de ses outils 
+La troisieme : la disponibilité
+
+Le test de la saisie en chiffre est dupliquer a chaque demande.
+Le test de l'index de l'outils est lui aussi dupliquer plusieur fois 
+Idem pour le test de la location 
+
+question code difficile a maintenir : ?
+
+On deverai cree des fonctions comme : 
+isAvailable(outil) qui verifie la disponibilité de l'outils
+isToolExist(index) qui verifie si l'outils existe 
+isTextInt(text) qui s'assure que le text saisie est un chiffre 
+
+Peu etre que le code serait plus perfomant et lisible avec un case 
