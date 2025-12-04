@@ -6,11 +6,19 @@ Le test de la saisie en chiffre est dupliquer a chaque demande.
 Le test de l'index de l'outils est lui aussi dupliquer plusieur fois 
 Idem pour le test de la location 
 
-question code difficile a maintenir : ?
+question code difficile a maintenir : 
+Si on veut changer le code cela va etre compliquer
+Si on doit faire une evolution 
+Creation d'un nouvelle outils qui peux etre compliquer 
 
 On deverai cree des fonctions comme : 
 isAvailable(outil) qui verifie la disponibilité de l'outils
 isToolExist(index) qui verifie si l'outils existe 
 isTextInt(text) qui s'assure que le text saisie est un chiffre 
 
+Creation de classe : 
+outils 
+catalogue 
+serviceDeLocation
+main
 Peu etre que le code serait plus perfomant et lisible avec un case 
