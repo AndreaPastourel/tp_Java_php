@@ -7,24 +7,57 @@ use App\Models\Tool;
 class LocationService{
 
 
-    //Louer un objet 
-    public function rentTool(Catalogue $catalogue,Tool $tool){
-        $index=$catalogue->findTool($tool);
+    //Recuperer le coup total 
+    public function totalCoast(Tool $tool, int $nbDays): ?float{
+        $price= $tool->getDailyPrice();
+        if ($nbDays>0){
+            return $price*$nbDays;
+        }
+        else {
+            echo "Le nombre de jour doit etre superieur à 0";
+            return null;
+        }
+    }
 
-        if ($index !== null){
+
+    //Louer un objet 
+    public function rentTool(Catalogue $catalogue,int $index){
+        $tool=$catalogue->findTool($index);
+
+        if ($tool !== null){
             $toolAvailable=$tool->getAvailable();
             if ($toolAvailable === true){
+                //Demande a l'utilisateur d'entrer le nombre de jour
+                echo "Entrer un nombre de jour(s) : ";
+                $nbDaily = trim(fgets(STDIN));
+
+                //Calcul le coup total 
+                $totalCoast=$this->totalCoast($tool,$nbDaily);
+
+                //L'objet devient indisponible
                 $tool->setAvailable(false);
+
+                //Recap
+                echo "\n---------- Recapitulatif ----------\n";
+                echo "Outil : " . $tool->getName() . "\n";
+                echo "Duree : " . $nbDaily . " jour(s)\n";
+                echo "Prix par jour : " . $tool->getDailyPrice() . " €\n";
+                echo "Prix total : " . $totalCoast . " €\n";
+                echo "-----------------------------------\n\n";
+
             }
             else {
                 echo $tool->getName()+" est deja loué";
             }
         }
+        else {
+            echo "Index incorrect";
+        }
     }
 
     //Rendre un objet
-    public function returnTool(Catalogue $catalogue,Tool $tool){
-        $index=$catalogue->findTool($tool);
+    public function returnTool(Catalogue $catalogue,int $index){
+        $tool=$catalogue->findTool($index);
 
         if ($index !== null){
             $toolAvailable=$tool->getAvailable();
@@ -35,9 +68,14 @@ class LocationService{
                 echo $tool->getName()+" est deja disponible";
             }
         }
+        else {
+            echo "Index incorrect";
+        }
     }
 
+     
 
+    
 
 }
 

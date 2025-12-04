@@ -4,7 +4,8 @@
 
 class Catalogue{
 
-    private array $tools;
+    private array $tools=[];
+
 
     //Getter
     public function getTools(): array {
@@ -22,39 +23,36 @@ class Catalogue{
     }
     //rechercher un outil
 
-    public function findTool(Tool $toolToFind): ?int{
-    foreach ($this->tools as $index => $tool) {
-        if ($tool->getIndex() === $toolToFind->getIndex()) {
-            return $index;
+   public function findTool(int $id): ?Tool
+{
+    foreach ($this->tools as $tool) {
+        if ($tool->getIndex() === $id) {   
+            return $tool;
         }
     }
-    return null; 
-    }
+    return null;
+}
 
     //Supprimer un outil
     public function removeOutils(Tool $tooltoRemove):void{
-        $index=$this->findTool($tooltoRemove);
+        $index=$this->findTool($tooltoRemove->getIndex());
         if ($index !==null){
             unset($this->tools[$index]);
             }
         }
-    
-    //Recuperer le coup total 
-    public function totalCoast(Tool $tool, int $nbDays): ?float{
-        $price= $tool->getDailyPrice();
-        if ($nbDays>0){
-            return $price*$nbDays;
+    //afficher la liste d'outils
+    public function showTools():void{
+        
+       foreach ($this->tools as $tool){
+           $status = $tool->getAvailable() ? "DISPONIBLE" : "LOUE";
+           echo $tool->getIndex() . " - " . $tool->getName()
+                . " | " . $tool->getDailyPrice() . " €/jour"
+                . " | " . $status . "\n";
         }
-        else {
-            echo "Le nombre de jour doit etre superieur à 0";
-            return null;
-        }
+        echo "\n";
     }
  
-    //Constructeur
-	public function __construct(array $tools){
-        $this->tools = $tools;
-    }
+    
 
     
 	
